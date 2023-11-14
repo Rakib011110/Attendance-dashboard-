@@ -7,46 +7,10 @@ import {
   FaHome,
   FaThumbsDown,
 } from "react-icons/fa";
-import { PieChart } from "@mui/x-charts/PieChart";
+import Analytics from "./Analytics";
+import { PieChart } from "@mui/x-charts";
 
 const AttendanceDashboard = () => {
-  const data = [
-    {
-      " NAME ": "PISENCE",
-      " ATTENDANCE": {
-        " monday": {
-          date: "21/7/23",
-          fn: "present",
-          an: "present",
-        },
-        tuesday: {
-          date: "22/7/2423",
-          fn: "absent",
-          an: "present",
-        },
-        wednesday: {
-          date: "23/7/25",
-          fn: "present",
-          an: "absent",
-        },
-        thursday: {
-          date: "24/7/25",
-          fn: "present",
-          an: "present",
-        },
-        friday: {
-          date: "25/7/25",
-          fn: "absent",
-          an: "present",
-        },
-      },
-
-      homework: ["english", "science", "maths"],
-
-      "Behavioral Analytics": ["good", "bad", "good", "bad", "good"],
-    },
-  ];
-
   return (
     <div>
       <div className="drawer">
@@ -143,24 +107,24 @@ const AttendanceDashboard = () => {
                     </div>
                   </div>
                 </div>
-                <div className=" w-full"></div>
+                <div className=" w-full">
+                  {" "}
+                  <div className="">
+                    <PieChart
+                      series={[
+                        {
+                          data: [
+                            { id: 0, value: 70, label: "GOOD" },
+                            { id: 1, value: 40, label: "BAD" },
+                          ],
+                        },
+                      ]}
+                      width={400}
+                      height={200}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="flex justify-center items-center h-screen">
-              <PieChart
-                series={[
-                  {
-                    data: [
-                      { id: 0, value: 10, label: "series A" },
-                      { id: 1, value: 15, label: "series B" },
-                      { id: 2, value: 20, label: "series C" },
-                    ],
-                  },
-                ]}
-                width={400}
-                height={200}
-              />
             </div>
           </div>
 
